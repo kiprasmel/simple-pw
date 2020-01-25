@@ -22,8 +22,25 @@
 				box-sizing: border-box;
 			}
 
+			html, body {
+				margin: 0;
+				padding: 0;
+			}
+
+			:root {
+				--primary: #51fab9;
+				--secondary: #51e3fa;
+				--color: #000000;
+				--fa-color: #000000;
+			}
+
 			body {
 				max-height: 100vh;
+				color: var(--color);
+			}
+
+			.fa-colored {
+				color: #000;
 			}
 
 			a {
@@ -38,29 +55,42 @@
 				list-style-type: none;
 			}
 
-			.container {
+			.wrapper {
+				position: relative;
 				max-width: 35%;
-				margin: auto;
+				margin: 0 auto;
+				box-sizing: border-box;
+			}
 
+			.container {
+				/* max-width: 35%; */
 				display: grid;
-
 				grid-template-columns: 1fr 3fr;
 				grid-template-rows: auto;
-
 				column-gap: 1em;
-
 				/* justify-items: center; */
 				justify-content: center;
-
 				grid-template-areas:
 					"photo name"
 					"interests info"
 					"links links";
-
-				border: 1px solid #888822;
-				border-radius: 6px; /** calc(1.68px * 4) // 6px; */
+				/* border: 1px solid #888822; */
+				/* border-radius: 6px; */ /** calc(1.68px * 4) // 6px; */
 				padding: 1.68em;
+				background-color: var(--primary);
+				box-shadow: 25px 25px var(--secondary);
+				margin-top: 10em;
 			}
+/*
+			.container::after {
+				content: "";
+				background-color: #51e3fa;
+				color: #51e3fa;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+			} */
 
 			.photo {
 				width: 100px;
@@ -102,22 +132,20 @@
 			}
 
 			@media (max-width: 1200px) {
-				.container {
+				.wrapper {
 					max-width: 60%;
 				}
 			}
 
 			@media (max-width: 800px) {
-				.container {
+				.wrapper {
 					max-width: 70%;
-
 					grid-template-areas:
 						"photo photo"
 						"name name"
 						"interests interests"
 						"info info"
 						"links links";
-
 					text-align: center;
 					justify-items: center;
 				}
@@ -129,17 +157,30 @@
 			}
 
 			@media (max-width: 530px) {
+				.wrapper {
+					max-width: 100%;
+					/* width: 100%; */
+				}
+
 				.container {
 					max-width: 100%;
+					height: 100vh;
 					border: none;
+					box-shadow: none;
+				}
+
+				.container::after {
+					/* visibility: hidden; */
+					display: none;
 				}
 			}
 		</style>
 	</head>
 	<body>
-		<div style="margin-top: 10em;"></div>
+		<div class="wrapper">
+
 		<div class="container">
-			<img src="/portrait-md.jpg" alt="Kipras" class="photo" />
+			<img src="./portrait-md.jpg" alt="Kipras" class="photo" />
 
 			<h1 class="name">Kipras Melnikovas</h1>
 
@@ -160,16 +201,25 @@
 					rel="noopener"
 					title="Kipras Melnikovas GitHub'e"
 				>
-					<i class="fab fa-3x fa-github"></i>
+					<i class="fa-colored fab fa-3x fa-github"></i>
+				</a>
+
+				<a
+					href="https://twitter.com/kiprasmel"
+					target="_blank"
+					rel="noopener"
+					title="kipras melnikovas twitter'yje"
+				>
+					<i class="fa-colored fab fa-3x fa-twitter"></i>
 				</a>
 
 				<a
 					href="https://linkedin.com/in/kiprasmel"
 					target="_blank"
 					rel="noopener"
-					title="Kipras Melnikovas LinkedIn'e"
+					title="kipras melnikovas linkedin'e"
 				>
-					<i class="fab fa-3x fa-linkedin"></i>
+					<i class="fa-colored fab fa-3x fa-linkedin"></i>
 				</a>
 
 				<a
@@ -178,9 +228,11 @@
 					rel="noopener"
 					title="Kipras Melnikovas YouTube'ėje"
 				>
-					<i class="fab fa-3x fa-youtube"></i>
+					<i class="fa-colored fab fa-3x fa-youtube"></i>
 				</a>
 			</nav>
 		</div>
+		</div>
 	</body>
+
 </html>
