@@ -38,8 +38,16 @@
 				list-style-type: none;
 			}
 
+			.wrapper {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
 			.container {
-				max-width: 35%;
+				/* max-width: 35%; */
+
 				margin: auto;
 
 				display: grid;
@@ -103,13 +111,14 @@
 
 			@media (max-width: 1200px) {
 				.container {
-					max-width: 60%;
+					/* max-width: 60%; */
 				}
 			}
 
 			@media (max-width: 800px) {
 				.container {
-					max-width: 70%;
+					/* max-width: 70%; */
+					max-width: 100%;
 
 					grid-template-areas:
 						"photo photo"
@@ -137,9 +146,9 @@
 		</style>
 	</head>
 	<body>
-		<div style="margin-top: 10em;"></div>
+		<div class="wrapper">
 		<div class="container">
-			<img src="/portrait-md.jpg" alt="Kipras" class="photo" />
+			<img src="./portrait-md.jpg" alt="Kipras" class="photo" />
 
 			<h1 class="name">Kipras Melnikovas</h1>
 
@@ -181,6 +190,7 @@
 					<i class="fab fa-3x fa-youtube"></i>
 				</a>
 			</nav>
+		</div>
 		</div>
 	</body>
 </html>
